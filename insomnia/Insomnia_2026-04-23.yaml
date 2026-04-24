@@ -1,0 +1,458 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: HSIMULACIONESAPI
+meta:
+  id: wrk_da66bdcc8d6549678a38058f026a8aa1
+  created: 1761666931030
+  modified: 1775082847119
+  description: ""
+collection:
+  - name: Carreras
+    meta:
+      id: fld_375bc36a15184ff0bc5bbba67b4ae3e7
+      created: 1776990361074
+      modified: 1776996647439
+      sortKey: -1776990411357
+      description: ""
+    children:
+      - url: https://hsimulacionesapi.luispincay.com/api/carreras
+        name: create
+        meta:
+          id: req_ba90cc3c9b5245709530ec830296da08
+          created: 1776990384460
+          modified: 1776991483623
+          isPrivate: false
+          description: ""
+          sortKey: -1776990384460
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"Nombre":"Emergencias Médicas"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/carreras
+        name: all
+        meta:
+          id: req_ec85976bfc444315a778066fd2b88db4
+          created: 1776991431012
+          modified: 1776991466864
+          isPrivate: false
+          description: ""
+          sortKey: -1776990384360
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/carreras/1
+        name: update
+        meta:
+          id: req_902b65b27ae6406ca4f436bd9c450913
+          created: 1776991507104
+          modified: 1776991580458
+          isPrivate: false
+          description: ""
+          sortKey: -1776990384260
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"Nombre":"Rehabilitación Física"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/carreras/2
+        name: delete
+        meta:
+          id: req_45e582bd02664a76a2a54d33c2fdfb43
+          created: 1776991686167
+          modified: 1776991738878
+          isPrivate: false
+          description: ""
+          sortKey: -1776990384160
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Auth
+    meta:
+      id: fld_15171649ba5c4f81976fa33dc6a5134f
+      created: 1776990411107
+      modified: 1776996641502
+      sortKey: -1776990411407
+      description: ""
+    children:
+      - url: https://hsimulacionesapi.luispincay.com/api/auth/login
+        name: login
+        meta:
+          id: req_a4937993f7024a64aa2715370dc10e6a
+          created: 1776990414144
+          modified: 1776999016596
+          isPrivate: false
+          description: ""
+          sortKey: -1776990414144
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"Usuario":"ADMIN",
+            	"Password":"{{ _.password }}"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: none
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Niveles
+    meta:
+      id: fld_a980a06482a14850866d815d0bc972c9
+      created: 1776995978057
+      modified: 1776996622532
+      sortKey: -1776990411307
+      description: ""
+    children:
+      - url: https://hsimulacionesapi.luispincay.com/api/niveles
+        name: all
+        meta:
+          id: req_52d5f7b3cee14a7e918dc1ebcb8064e8
+          created: 1776995980942
+          modified: 1776996015526
+          isPrivate: false
+          description: ""
+          sortKey: -1776995980942
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Materias
+    meta:
+      id: fld_db72c1d2ff224477b0cfb62d471c084b
+      created: 1776996583392
+      modified: 1776996602834
+      sortKey: -1776990411207
+      description: ""
+    children:
+      - url: https://hsimulacionesapi.luispincay.com/api/materias
+        name: create
+        meta:
+          id: req_dbcb07ac48d546ecab5147a368cce597
+          created: 1776996652141
+          modified: 1776997524966
+          isPrivate: false
+          description: ""
+          sortKey: -1776996652141
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"CarreraID":1,
+            	"NivelID":1,
+            	"Nombre":"REGIONES ANATOMICAS DEL CUERPO HUMANO"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/materias
+        name: all
+        meta:
+          id: req_31124385a17742dfa049688715b00ce1
+          created: 1776997015277
+          modified: 1776997107769
+          isPrivate: false
+          description: ""
+          sortKey: -1776996652041
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/materias/carrera/1
+        name: byCarreraID
+        meta:
+          id: req_7dcf54a8168b43eaa63fb1c4b1a30b0a
+          created: 1776997143960
+          modified: 1776997943762
+          isPrivate: false
+          description: ""
+          sortKey: -1776996316491.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/materias/carrera/1/nivel/1
+        name: byCarreraIDNivelID
+        meta:
+          id: req_19b9f62795144d6eb336ed8f3f7b99bd
+          created: 1776997969149
+          modified: 1776997995158
+          isPrivate: false
+          description: ""
+          sortKey: -1776996148716.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/materias/2
+        name: update
+        meta:
+          id: req_7a4bb77d277c4e758405b4b6e2967588
+          created: 1776998241599
+          modified: 1776998334969
+          isPrivate: false
+          description: ""
+          sortKey: -1776996148616.75
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"CarreraID":1,
+            	"NivelID":1,
+            	"Nombre":"POSICIONES ANATÓMICAS DEL PACIENTE"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: https://hsimulacionesapi.luispincay.com/api/materias/1
+        name: delete
+        meta:
+          id: req_af0018750ed14244a0c0b700feb8bad6
+          created: 1776998528181
+          modified: 1776998541425
+          isPrivate: false
+          description: ""
+          sortKey: -1776996148516.75
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Temas
+    meta:
+      id: fld_c46a1afb491a4267969bb1b7ac4acc4a
+      created: 1776998870582
+      modified: 1776998930360
+      sortKey: -1776990411507
+      description: ""
+    children:
+      - url: https://hsimulacionesapi.luispincay.com/api/temas
+        name: create
+        meta:
+          id: req_165f25174ce34dfc8b09ea2e2be799ae
+          created: 1776998912982
+          modified: 1776999241789
+          isPrivate: false
+          description: ""
+          sortKey: -1776998912982
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"MateriaID":1,
+            	"Codigo":"TEMA-001",
+            	"Nombre":"POSICIONES ANATOMICAS DEL PACIENTE"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.1.0
+            description: ""
+            disabled: false
+        authentication:
+          type: bearer
+          token: "{{ _.jwt_token }}"
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_53408e3e95be3ae022fcb04bd00b1c09507f564c
+    created: 1775082846225
+    modified: 1775082846225
+environments:
+  name: Base Environment
+  meta:
+    id: env_53408e3e95be3ae022fcb04bd00b1c09507f564c
+    created: 1761666931031
+    modified: 1775082847118
+    isPrivate: false
+  data:
+    base_url: https://hsimulacionesapi.luispincay.com
+    jwt_token: ""
+    password: ""
