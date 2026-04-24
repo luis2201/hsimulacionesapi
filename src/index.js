@@ -40,13 +40,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Conectar a la base de datos
-// db.connect((err) => {
-//     if (err) {
-//         console.error('Error conectando a la base de datos:', err);
-//         process.exit(1);
-//     }
-//     console.log('Conectado a la base de datos MySQL');
-// });
 db.query('SELECT 1', (err) => {
     if (err) {
         console.error('Error conectando a la base de datos:', err);
@@ -86,7 +79,6 @@ app.get('/health', (req, res) => {
     });
   });
 });
-
 // Ruta de prueba
 app.get('/', (req, res) => {
     res.send('API funcionando correctamente');

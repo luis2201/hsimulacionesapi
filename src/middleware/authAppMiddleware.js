@@ -9,6 +9,7 @@ const verifyAppITToken = (req, res, next) => {
     }
 
     jwt.verify(token, process.env.JWT_SECRET_APP || 'claveAppIT123', (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET_APP || 'claveAppIT123', (err, decoded) => {
         if (err) return res.status(401).json({ error: 'Token inválido o expirado' });
 
         if (decoded.Rol !== 'APP' || decoded.App !== 'APPIT') {

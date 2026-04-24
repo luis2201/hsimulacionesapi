@@ -65,7 +65,7 @@ const Reserva = {
     } = data;
 
     const sql = `UPDATE hs_reserva SET
-      Fecha = ?, HoraInicio = ?, HoraFin = ?, Jornada = ?, EscenarioID = ?, TipoPracticaID = ?,
+      Semana = ?, Fecha = ?, HoraInicio = ?, HoraFin = ?, Jornada = ?, EscenarioID = ?, TipoPracticaID = ?,
       Carrera = ?, Asignatura = ?, Tema = ?, Docente = ?, NumEstudiantes = ?, RecursoID = ?, TecnicoID = ?
       WHERE ID = ?`;
 
@@ -76,15 +76,15 @@ const Reserva = {
   },
 
   // Eliminar lógicamente una reserva
-  deleteReserva: (id, estado, callback) => {
-    const sql = `UPDATE hs_reserva SET Estado = ? WHERE ID = ?`;
-    db.query(sql, [estado, id], callback);
+  deleteReserva: (id, callback) => {
+    const sql = `UPDATE hs_reserva SET Estado = 0 WHERE ID = ?`;
+    db.query(sql, [id], callback);
   },
 
   updateEstadoManual: (id, estado, callback) => {
     const sql = `UPDATE hs_reserva SET EstadoManual = ? WHERE ID = ?`;
     db.query(sql, [estado, id], callback);
-  },
+  }
 };
 
 module.exports = Reserva;

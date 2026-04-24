@@ -6,7 +6,6 @@ const ReservaController = {
   // Crear nueva reserva con verificación de disponibilidad
   createReserva: (req, res) => {
     const errors = validationResult(req);
-    
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
     const datos = req.body;
@@ -91,9 +90,7 @@ console.log('Datos de la reserva recibidos:', datos);
       if (err) return res.status(500).json({ error: 'Error al actualizar el estado manual' });
       res.json({ message: 'EstadoManual actualizado correctamente' });
     });
-  },
-
-
+  }
 };
 
 module.exports = ReservaController;

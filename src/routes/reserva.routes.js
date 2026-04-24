@@ -37,7 +37,6 @@ router.post(
 );
 
 router.put('/appit/:id', verifyAppitToken, ReservaController.updateReserva);
-
 // Rutas para usuarios de HSIMULACIONES
 router.get('/', verifyToken, ReservaController.getReservas);
 router.get('/:id', verifyToken, verifyRole(['ADMIN', 'USUARIO']), ReservaController.getReservaById);
@@ -54,5 +53,4 @@ router.put('/:id', verifyToken, verifyRole(['ADMIN']), validacionesReserva, Rese
 router.delete('/:id', verifyToken, verifyRole(['ADMIN']), ReservaController.deleteReserva);
 
 router.put('/estado-manual/:id',verifyToken,verifyRole(['ADMIN', 'USUARIO']),ReservaController.setEstadoManual);
-
 module.exports = router;
