@@ -1,0 +1,6 @@
+.vscode/
+config/
+.env
+.env2
+.DS_Store
+src/.DS_Store
