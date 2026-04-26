@@ -1,10 +1,14 @@
 const express = require('express');
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 const CarreraController = require('../controllers/carrera.controller');
 const verifyToken = require('../middleware/authMiddleware');
 const verifyRole = require('../middleware/roleMiddleware');
 
 const router = express.Router();
+
+const validacionId = [
+    param('id').isInt().withMessage('id no es valido')
+];
 
 router.get('/', verifyToken, CarreraController.getAllCarreras);
 
@@ -29,5 +33,6 @@ router.put(
 );
 
 router.delete('/:id', verifyToken, verifyRole(['ADMIN']), CarreraController.deleteCarrera);
+router.put('/activate/:id', verifyToken, verifyRole(['ADMIN']), validacionId, CarreraController.activateCarrera);
 
 module.exports = router;

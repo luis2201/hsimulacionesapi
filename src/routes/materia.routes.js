@@ -59,5 +59,6 @@ router.put(
 );
 
 router.delete('/:id', verifyToken, verifyRole(['ADMIN']), validacionId, MateriaController.deleteMateria);
+router.put('/activate/:id', verifyToken, verifyRole(['ADMIN']), validacionId, MateriaController.activateMateria);
 
 module.exports = router;

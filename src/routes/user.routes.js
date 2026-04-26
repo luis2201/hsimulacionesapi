@@ -34,7 +34,7 @@ router.post(
         body('Nombres').isString().notEmpty().withMessage('El nombre es obligatorio'),
         body('Usuario').isString().trim().notEmpty().withMessage('Usuario es obligatorio'),
         body('Password').isString().isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres'),
-        body('Rol').isIn(['ADMIN', 'USUARIO']).withMessage('Rol inválido, debe ser ADMIN o USUARIO')
+        body('Rol').isIn(['ADMIN', 'USUARIO', 'DOCENTE']).withMessage('Rol inválido, debe ser ADMIN, USUARIO o DOCENTE')
     ],
     verifyToken,
     verifyRole(['ADMIN']),

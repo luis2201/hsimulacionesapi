@@ -3,6 +3,8 @@ const Auth = require('../models/auth.model');
 const bcrypt = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
+const ROLES_VALIDOS = ['ADMIN', 'USUARIO', 'DOCENTE'];
+
 const UserController = {
     getAllUsers: (req, res) => {
         User.getAllUsers((err, results) => {
@@ -43,8 +45,8 @@ const UserController = {
 
         const { Nombres, Usuario, Password, Rol } = req.body;
 
-        if (!['ADMIN', 'USUARIO'].includes(Rol)) {
-            return res.status(400).json({ error: 'Rol no válido. Debe ser ADMIN o USUARIO.' });
+        if (!ROLES_VALIDOS.includes(Rol)) {
+            return res.status(400).json({ error: 'Rol no válido. Debe ser ADMIN, USUARIO o DOCENTE.' });
         }
 
         if (Rol === 'ADMIN' && req.user.Rol !== 'ADMIN') {
@@ -67,8 +69,8 @@ const UserController = {
         const { id } = req.params;
         const { Nombres, Usuario, Rol } = req.body;
 
-        if (Rol && !['ADMIN', 'USUARIO'].includes(Rol)) {
-            return res.status(400).json({ error: 'Rol inválido. Debe ser ADMIN o USUARIO.' });
+        if (Rol && !ROLES_VALIDOS.includes(Rol)) {
+            return res.status(400).json({ error: 'Rol inválido. Debe ser ADMIN, USUARIO o DOCENTE.' });
         }
 
         User.updateUser(id, { Nombres, Usuario, Rol }, (err) => {
