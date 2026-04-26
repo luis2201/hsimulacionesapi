@@ -1,5 +1,8 @@
 .vscode/
+node_modules/
 config/
+!src/config/
+!src/config/db.js
 .env
 .env2
 .DS_Store

@@ -84,6 +84,18 @@ const MateriaController = {
             if (err) return res.status(500).json({ error: 'Error al eliminar la materia' });
             res.json({ message: 'Materia eliminada' });
         });
+    },
+
+    activateMateria: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+        const { id } = req.params;
+
+        Materia.activateMateria(id, (err) => {
+            if (err) return res.status(500).json({ error: 'Error al activar la materia' });
+            res.json({ message: 'Materia activada correctamente' });
+        });
     }
 };
 
