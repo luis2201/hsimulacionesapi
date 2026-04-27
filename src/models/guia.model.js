@@ -35,8 +35,7 @@ const GUIA_DATA_FIELDS = [
     'FechaDiseno',
     'Autor',
     'FechaValidacion',
-    'ReferenciasBibliograficas',
-    'EstadoGuia'
+    'ReferenciasBibliograficas'
 ];
 
 const GUIA_CREATE_FIELDS = ['Codigo', ...GUIA_DATA_FIELDS];

@@ -26,7 +26,6 @@ const validacionesGuia = [
     body('Libreto').optional({ checkFalsy: true }).isString().withMessage('Libreto no es valido'),
     body('Autor').optional({ checkFalsy: true }).isString().isLength({ max: 150 }).withMessage('Autor no es valido'),
     body('ReferenciasBibliograficas').optional({ checkFalsy: true }).isString().withMessage('ReferenciasBibliograficas no es valido'),
-    body('EstadoGuia').optional().isIn(['BORRADOR', 'ENVIADA', 'APROBADA', 'RECHAZADA']).withMessage('EstadoGuia no es valido'),
     body('FechaDiseno').optional({ checkFalsy: true }).isISO8601().withMessage('FechaDiseno no es valida'),
     body('FechaValidacion').optional({ checkFalsy: true }).isISO8601().withMessage('FechaValidacion no es valida')
 ];

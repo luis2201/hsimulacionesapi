@@ -18,7 +18,6 @@ const normalizeGuiaData = (req) => {
     const guiaData = {
         ...cleanEmptyValues(req.body),
         DocenteID: req.body.DocenteID || req.user.userId,
-        EstadoGuia: req.body.EstadoGuia || 'BORRADOR',
         CreadoPor: req.user.userId,
         ActualizadoPor: req.user.userId
     };
