@@ -16,6 +16,10 @@ const validacionMateriaId = [
     param('materiaId').isInt().withMessage('materiaId no es valido')
 ];
 
+const validacionCodigo = [
+    param('codigo').isString().trim().notEmpty().withMessage('codigo es obligatorio')
+];
+
 const validacionId = [
     param('id').isInt().withMessage('id no es valido')
 ];
@@ -27,6 +31,13 @@ router.get(
     verifyToken,
     validacionMateriaId,
     TemaController.getTemasByMateriaId
+);
+
+router.get(
+    '/codigo/:codigo',
+    verifyToken,
+    validacionCodigo,
+    TemaController.getTemaByCodigo
 );
 
 router.post(
@@ -47,5 +58,6 @@ router.put(
 );
 
 router.delete('/:id', verifyToken, verifyRole(['ADMIN']), validacionId, TemaController.deleteTema);
+router.put('/activate/:id', verifyToken, verifyRole(['ADMIN']), validacionId, TemaController.activateTema);
 
 module.exports = router;

@@ -21,6 +21,20 @@ const TemaController = {
         });
     },
 
+    getTemaByCodigo: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+        const { codigo } = req.params;
+
+        Tema.getTemaByCodigo(codigo, (err, results) => {
+            if (err) return res.status(500).json({ error: 'Error al obtener el tema por codigo' });
+            if (results.length === 0) return res.status(404).json({ message: 'Tema no encontrado' });
+
+            res.json(results[0]);
+        });
+    },
+
     createTema: (req, res) => {
         const errors = validationResult(req);
 
@@ -71,6 +85,18 @@ const TemaController = {
         Tema.deleteTema(id, (err) => {
             if (err) return res.status(500).json({ error: 'Error al eliminar el tema' });
             res.json({ message: 'Tema eliminado' });
+        });
+    },
+
+    activateTema: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+        const { id } = req.params;
+
+        Tema.activateTema(id, (err) => {
+            if (err) return res.status(500).json({ error: 'Error al activar el tema' });
+            res.json({ message: 'Tema activado correctamente' });
         });
     }
 };

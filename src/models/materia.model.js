@@ -71,6 +71,10 @@ const Materia = {
 
     deleteMateria: (id, callback) => {
         db.query('UPDATE hs_materia SET Estado = 0 WHERE ID = ?', [id], callback);
+    },
+
+    activateMateria: (id, callback) => {
+        db.query('UPDATE hs_materia SET Estado = 1 WHERE ID = ?', [id], callback);
     }
 };
 

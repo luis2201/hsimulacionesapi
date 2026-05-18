@@ -32,6 +32,22 @@ const Tema = {
         db.query(sql, [materiaId], callback);
     },
 
+    getTemaByCodigo: (codigo, callback) => {
+        const sql = `
+            SELECT
+                T.*,
+                M.Nombre AS Materia,
+                M.CarreraID,
+                M.NivelID
+            FROM hs_tema T
+            INNER JOIN hs_materia M ON M.ID = T.MateriaID
+            WHERE T.Codigo = ?
+            LIMIT 1
+        `;
+
+        db.query(sql, [codigo], callback);
+    },
+
     createTema: (temaData, callback) => {
         const { MateriaID, Codigo, Nombre } = temaData;
         const sql = `
@@ -55,6 +71,10 @@ const Tema = {
 
     deleteTema: (id, callback) => {
         db.query('UPDATE hs_tema SET Estado = 0 WHERE ID = ?', [id], callback);
+    },
+
+    activateTema: (id, callback) => {
+        db.query('UPDATE hs_tema SET Estado = 1 WHERE ID = ?', [id], callback);
     }
 };
 

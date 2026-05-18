@@ -18,6 +18,10 @@ const Carrera = {
 
     deleteCarrera: (id, callback) => {
         db.query('UPDATE hs_carrera SET Estado = 0 WHERE ID = ?', [id], callback);
+    },
+
+    activateCarrera: (id, callback) => {
+        db.query('UPDATE hs_carrera SET Estado = 1 WHERE ID = ?', [id], callback);
     }
 };
 

@@ -13,6 +13,8 @@ const temaRoutes = require('./routes/tema.routes');
 const reservaRoutes = require('./routes/reserva.routes');
 const recursoRoutes = require('./routes/recurso.routes');
 const carreraRoutes = require('./routes/carrera.routes');
+const guiaRoutes = require('./routes/guia.routes');
+const solicitudRoutes = require('./routes/solicitud.routes');
 
 const db = require('./config/db');
 const app = express();
@@ -32,8 +34,8 @@ const corsOptions = {
     } else {
       if (process.env.NODE_ENV !== 'production') {
         console.warn(`CORS bloqueado para origen: ${origin}`);
-        callback(null, false); // No lanza error
       }
+      callback(null, false); // No lanza error
     }
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -100,6 +102,8 @@ app.use('/api/temas', temaRoutes);
 app.use('/api/reservas', reservaRoutes);
 app.use('/api/recursos', recursoRoutes);
 app.use('/api/carreras', carreraRoutes);
+app.use('/api/guias', guiaRoutes);
+app.use('/api/solicitudes', solicitudRoutes);
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 4000;

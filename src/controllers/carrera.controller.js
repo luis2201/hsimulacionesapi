@@ -58,6 +58,18 @@ const CarreraController = {
             if (err) return res.status(500).json({ error: 'Error al eliminar la carrera' });
             res.json({ message: 'Carrera eliminada' });
         });
+    },
+
+    activateCarrera: (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+        const { id } = req.params;
+
+        Carrera.activateCarrera(id, (err) => {
+            if (err) return res.status(500).json({ error: 'Error al activar la carrera' });
+            res.json({ message: 'Carrera activada correctamente' });
+        });
     }
 };
 
